@@ -1,39 +1,60 @@
 {
-  "node": "v14.15.1",
+  "node": "v16.13.1",
   "system": {
     "manufacturer": "Apple Inc.",
-    "model": "MacBookPro11,3"
+    "model": "MacBookPro11,2"
   },
   "cpu": {
     "manufacturer": "Intel®",
-    "brand": "Core™ i7-4960HQ",
-    "speed": 2.6
+    "brand": "Core™ i7-4870HQ",
+    "speed": 2.5
   },
   "memory": "16 GB",
   "osInfo": {
     "platform": "darwin",
     "distro": "macOS",
-    "release": "11.5.2"
+    "release": "11.6"
   },
   "vscodeInfo": {
-    "version": "1.62.1",
+    "version": "1.63.2",
     "extensions": [
+      "aaron-bond.better-comments",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-preview-github-styles",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
       "esbenp.prettier-vscode",
       "ritwickdey.LiveServer",
-      "shd101wyy.markdown-preview-enhanced"
+      "streetsidesoftware.code-spell-checker"
     ],
     "userSettings": {
-      "explorer.confirmDragAndDrop": false,
-      "explorer.confirmDelete": false,
+      "emmet.triggerExpansionOnTab": true,
+      "editor.minimap.enabled": false,
+      "editor.formatOnPaste": true,
+      "editor.fontLigatures": true,
+      "editor.fontFamily": "Fira Code",
+      "editor.fontSize": 13,
+      "workbench.editor.highlightModifiedTabs": true,
+      "editor.letterSpacing": 0.2,
+      "editor.lineHeight": 22,
+      "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+      },
+      "emmet.extensionsPath": [
+        "/Users/hyf/"
+      ],
+      "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+      },
       "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
       },
-      "javascript.updateImportsOnFileMove.enabled": "never",
-      "editor.formatOnSave": true,
-      "editor.tabSize": 2,
-      "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-      }
+      "bracket-pair-colorizer-2.depreciation-notice": false,
+      "window.zoomLevel": -1
     }
   }
 }
