@@ -35,11 +35,11 @@ function giveCompliment(name) {
     'the best',
     'super',
   ];
-  
-  const aComplimentIndex = Math.floor(Math.random() * compliments.length);
-  const aCompliment = compliments[aComplimentIndex];
 
-  return `You are ${aCompliment}, ${name}!`;
+  const complimentIndex = Math.floor(Math.random() * compliments.length);
+  const compliment = compliments[complimentIndex];
+
+  return `You are ${compliment}, ${name}!`;
 }
 
 function main() {
