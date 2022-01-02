@@ -1,0 +1,6 @@
+*** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="/Users/hyf/Homework-class35/test-runner/CustomReporter.js"

@@ -61,3 +61,21 @@ ex7-mindPrivacy.js
 2021-12-27 10:32:59 info: ----------------------------------------------
 2021-12-27 10:33:01 info: All unit tests passed.
 2021-12-27 10:33:04 info: All steps were completed successfully
+2022-01-02 12:18:07 info: -------------------------------------------
+2022-01-02 12:18:07 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-01-02 12:18:07 info: -------------------------------------------
+2022-01-02 12:18:10 error: *** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="/Users/hyf/Homework-class35/test-runner/CustomReporter.js"
+2022-01-02 01:03:13 info: -------------------------------------------
+2022-01-02 01:03:13 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-01-02 01:03:13 info: -------------------------------------------
+2022-01-02 01:03:15 error: *** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="/Users/hyf/Homework-class35/test-runner/CustomReporter.js"
