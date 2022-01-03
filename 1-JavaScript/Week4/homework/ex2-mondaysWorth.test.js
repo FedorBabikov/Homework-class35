@@ -31,8 +31,28 @@ const mondayTasks = [
 
 const hourlyRate = 25;
 
-function computeEarnings(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+function computeEarnings(tasks, rate) {
+  // first: check if the passed arguments are an array and a number. If not - get angry..
+  if (!Array.isArray(tasks) || typeof rate !== 'number') {
+    return 'computeEarnings: passed arguments are not an array and a number.';
+  }
+  // then: check if every 'duration' prop is a number. If not - get angry..
+  for (const { duration } of tasks) {
+    if (typeof duration !== 'number') {
+      return "computeEarnings: 'duration' in the passed array is not a number.";
+    }
+  }
+  // main job: chain map (with destructuring) + reduce on the passed arr.
+  // take out all the durations -> multiply each by the rate -> sum it all up in reduce.
+  const euroAmount = tasks
+    .map(({ duration }) => {
+      return (duration / 60) * rate;
+    })
+    .reduce((prev, next) => {
+      return prev + next;
+    });
+  // -return a formatted Euro amount using toFixed() on the sum.
+  return `€${euroAmount.toFixed(2)}`;
 }
 
 // ! Unit tests (using Jest)

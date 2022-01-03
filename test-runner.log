@@ -3,3 +3,8 @@
 2022-01-02 02:00:09 info: ------------------------------------------------------
 2022-01-02 02:00:11 info: All unit tests passed.
 2022-01-02 02:00:13 info: All steps were completed successfully
+2022-01-03 10:47:20 info: -------------------------------------------------
+2022-01-03 10:47:20 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2022-01-03 10:47:20 info: -------------------------------------------------
+2022-01-03 10:47:22 info: All unit tests passed.
+2022-01-03 10:47:25 info: All steps were completed successfully
