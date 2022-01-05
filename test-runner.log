@@ -68,3 +68,8 @@ Ran all test suites matching /ex3-lemonAllergy.test.js/i.
 2022-01-03 01:52:35 info: -------------------------------------------------
 2022-01-03 01:52:37 info: All unit tests passed.
 2022-01-03 01:52:39 info: All steps were completed successfully
+2022-01-05 09:59:34 info: ------------------------------------------
+2022-01-05 09:59:34 info: >>> Running Unit Test `ex4-observable` <<<
+2022-01-05 09:59:34 info: ------------------------------------------
+2022-01-05 09:59:36 info: All unit tests passed.
+2022-01-05 09:59:39 info: All steps were completed successfully
