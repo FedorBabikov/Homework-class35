@@ -73,3 +73,8 @@ Ran all test suites matching /ex3-lemonAllergy.test.js/i.
 2022-01-05 09:59:34 info: ------------------------------------------
 2022-01-05 09:59:36 info: All unit tests passed.
 2022-01-05 09:59:39 info: All steps were completed successfully
+2022-01-05 12:04:09 info: --------------------------------------
+2022-01-05 12:04:09 info: >>> Running Unit Test `ex5-wallet` <<<
+2022-01-05 12:04:09 info: --------------------------------------
+2022-01-05 12:04:11 info: All unit tests passed.
+2022-01-05 12:04:13 info: All steps were completed successfully
