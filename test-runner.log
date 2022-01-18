@@ -128,3 +128,13 @@ Ran all test suites matching /ex1-bookList.test.js/i.
 2022-01-18 12:24:31 info: ----------------------------------------
 2022-01-18 12:24:34 info: All unit tests passed.
 2022-01-18 12:24:36 info: All steps were completed successfully
+2022-01-18 02:13:19 info: ---------------------------------------
+2022-01-18 02:13:19 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2022-01-18 02:13:19 info: ---------------------------------------
+2022-01-18 02:13:24 info: All unit tests passed.
+2022-01-18 02:13:26 info: All steps were completed successfully
+2022-01-18 02:27:51 info: ---------------------------------------
+2022-01-18 02:27:51 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2022-01-18 02:27:51 info: ---------------------------------------
+2022-01-18 02:27:54 info: All unit tests passed.
+2022-01-18 02:27:56 info: All steps were completed successfully
