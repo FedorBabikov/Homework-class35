@@ -7,12 +7,17 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
   second). Use `setInterval()` to make sure the time stays current.
 2. Have the function execute when it's loading in the browser.
 ------------------------------------------------------------------------------*/
+
+// set-up section: set vars for time interval and for the target DOM elem
 let intervalID;
 const pElem = document.querySelector('#time');
+
+// add event listeners on buttons
 document.querySelector('.start').addEventListener('click', addCurrentTime);
 document.querySelector('.stop').addEventListener('click', stopTimer);
 
 function addCurrentTime() {
+  // set timer only if it's not already running
   if (!intervalID) {
     intervalID = setInterval(
       () => (pElem.textContent = getCurrentTime()),
@@ -21,6 +26,7 @@ function addCurrentTime() {
   }
 }
 
+// take the NOW time -> get Hs, Ms, Ss from the object -> make sure they are always 2-digit -> return the HH:MM:SS notation
 function getCurrentTime() {
   const date = new Date();
   const hhmmss = [date.getHours(), date.getMinutes(), date.getSeconds()];
@@ -31,6 +37,7 @@ function getCurrentTime() {
   return `${hhmmssModified[0]} : ${hhmmssModified[1]} : ${hhmmssModified[2]}`;
 }
 
+// on pressing the stop button - let go of the time interval and erase the target elem's content
 function stopTimer() {
   clearInterval(intervalID);
   intervalID = null;
