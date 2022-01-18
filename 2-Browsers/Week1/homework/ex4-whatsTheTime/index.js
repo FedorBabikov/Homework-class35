@@ -7,8 +7,34 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
   second). Use `setInterval()` to make sure the time stays current.
 2. Have the function execute when it's loading in the browser.
 ------------------------------------------------------------------------------*/
+let intervalID;
+const pElem = document.querySelector('#time');
+document.querySelector('.start').addEventListener('click', addCurrentTime);
+document.querySelector('.stop').addEventListener('click', stopTimer);
+
 function addCurrentTime() {
-  // TODO complete this function
+  if (!intervalID) {
+    intervalID = setInterval(
+      () => (pElem.textContent = getCurrentTime()),
+      1000
+    );
+  }
 }
 
-// TODO execute `addCurrentTime` when the browser has completed loading the page
+function getCurrentTime() {
+  const date = new Date();
+  const hhmmss = [date.getHours(), date.getMinutes(), date.getSeconds()];
+  const hhmmssModified = [];
+  for (const hms of hhmmss) {
+    hhmmssModified.push((hms < 10 ? '0' : '') + hms);
+  }
+  return `${hhmmssModified[0]} : ${hhmmssModified[1]} : ${hhmmssModified[2]}`;
+}
+
+function stopTimer() {
+  clearInterval(intervalID);
+  intervalID = null;
+  pElem.textContent = '';
+}
+
+window.addEventListener('load', addCurrentTime);

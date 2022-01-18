@@ -3,9 +3,9 @@
 Command failed: npx jest ex3-hijackLogo.test.js --colors
  FAIL  2-Browsers/Week1/unit-tests/ex3-hijackLogo.test.js
   hijackLogo
-    ✓ should have all TODO comments removed (1 ms)
-    ✕ should set the `src` property (2 ms)
-    ✕ should set the `srcset` property
+    ✓ should have all TODO comments removed (2 ms)
+    ✕ should set the `src` property (1 ms)
+    ✕ should set the `srcset` property (1 ms)
 
   ● hijackLogo › should set the `src` property
 
@@ -42,8 +42,8 @@ Command failed: npx jest ex3-hijackLogo.test.js --colors
 Test Suites: 1 failed, 1 total
 Tests:       2 failed, 1 passed, 3 total
 Snapshots:   0 total
-Time:        0.393 s
+Time:        0.327 s, estimated 1 s
 Ran all test suites matching /ex3-hijackLogo.test.js/i.
 *** Spell Checker Report ***
 
-ex3-hijackLogo.js:11:46 - Unknown word (Xdpd)
+ex3-hijackLogo.js:13:46 - Unknown word (Xdpd)
