@@ -1,0 +1,16 @@
+#bookList ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+#bookList ul li {
+  background-color: red;
+}
+img {
+  max-width: 40%;
+  margin: 10px;
+}
+p {
+  margin-left: 10px;
+}
