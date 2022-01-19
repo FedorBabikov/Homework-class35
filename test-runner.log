@@ -297,3 +297,8 @@ Ran all test suites matching /ex4-whatsTheTime.test.js/i.
 2022-01-19 12:06:43 info: ---------------------------------------
 2022-01-19 12:06:48 info: All unit tests passed.
 2022-01-19 12:06:50 info: All steps were completed successfully
+2022-01-19 05:54:44 info: ------------------------------------------
+2022-01-19 05:54:44 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2022-01-19 05:54:44 info: ------------------------------------------
+2022-01-19 05:54:46 info: All unit tests passed.
+2022-01-19 05:54:49 info: All steps were completed successfully

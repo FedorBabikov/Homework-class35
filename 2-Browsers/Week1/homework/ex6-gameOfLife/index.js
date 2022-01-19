@@ -5,18 +5,20 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 Adapted from: https://spicyyoghurt.com/tutorials/javascript/conways-game-of-life-canvas
 Refactored from ES6 Class syntax to regular functions
 ------------------------------------------------------------------------------*/
-const CELL_SIZE = 10;
-const NUM_COLUMNS = 75;
-const NUM_ROWS = 40;
+const CELL_SIZE = 7;
+const NUM_COLUMNS = 100;
+const NUM_ROWS = 50;
 
 // Create a cell with the given coordinates and randomly assign its begin state:
 // life or death
 function createCell(x, y) {
   const alive = Math.random() > 0.5;
+  const lifeTime = alive ? 1 : 0;
   return {
     x,
     y,
     alive,
+    lifeTime,
   };
 }
 
@@ -46,6 +48,7 @@ function createGame(context, numRows, numColumns) {
   // Draw a cell onto the canvas
   function drawCell(cell) {
     // Draw cell background
+    let opacity;
     context.fillStyle = '#303030';
     context.fillRect(
       cell.x * CELL_SIZE,
@@ -56,7 +59,20 @@ function createGame(context, numRows, numColumns) {
 
     if (cell.alive) {
       // Draw living cell inside background
-      context.fillStyle = `rgb(24, 215, 236)`;
+      switch (cell.lifeTime) {
+        case 1:
+          opacity = 0.25;
+          break;
+        case 2:
+          opacity = 0.5;
+          break;
+        case 3:
+          opacity = 0.75;
+          break;
+        default:
+          opacity = 1;
+      }
+      context.fillStyle = `rgba(24, 215, 236, ${opacity})`;
       context.fillRect(
         cell.x * CELL_SIZE + 1,
         cell.y * CELL_SIZE + 1,
@@ -108,6 +124,18 @@ function createGame(context, numRows, numColumns) {
       } else {
         // Living cell dies, dead cell remains dead
         cell.nextAlive = false;
+      }
+    });
+
+    forEachCell((cell) => {
+      if (cell.alive) {
+        if (cell.nextAlive) {
+          cell.lifeTime++;
+        } else {
+          cell.lifeTime = 0;
+        }
+      } else if (cell.nextAlive) {
+        cell.lifeTime = 1;
       }
     });
 
