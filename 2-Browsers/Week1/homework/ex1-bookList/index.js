@@ -26,10 +26,7 @@ function createBookList(books) {
     const imgElement = document.createElement('img');
     // shape and style the elements
     pElement.textContent = `${book.title} - ${book.author}`;
-    imgElement.src = `./assets/${book.title
-      .toLowerCase()
-      .split(' ')
-      .join('_')}.jpg`;
+    imgElement.src = getImgSrc(book.title);
     imgElement.alt = `${book.title}`;
     if (book.alreadyRead === true) {
       liElement.style.backgroundColor = 'green';
@@ -40,6 +37,10 @@ function createBookList(books) {
     ulElement.appendChild(liElement);
   }
   return ulElement;
+}
+
+function getImgSrc(title) {
+  return `./assets/${title.toLowerCase().split(' ').join('_')}.jpg`;
 }
 
 function main() {
