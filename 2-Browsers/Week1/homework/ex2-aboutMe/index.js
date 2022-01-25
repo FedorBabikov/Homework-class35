@@ -10,13 +10,27 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
    `list-item`.
 ------------------------------------------------------------------------------*/
 document.querySelector('body').style.fontFamily = 'Arial, sans-serif';
-// object with personal info
-const info = { nickname: 'Batman', 'fav-food': 'pizza', hometown: 'Amsterdam' };
+
 // take all the li's from document
-const liSet = document.querySelectorAll('li');
-
-for (const li of liSet) {
-  li.classList.add('list-item');
-
-  li.children[0].textContent = info[li.children[0].id];
+function getElementSet(type) {
+  return document.querySelectorAll(type);
 }
+
+function liModifier() {
+  // object with personal info
+  const info = {
+    nickname: 'Batman',
+    'fav-food': 'pizza',
+    hometown: 'Amsterdam',
+  };
+
+  for (const li of getElementSet('li')) {
+    const appendedText = info[li.children[0].id];
+
+    li.classList.add('list-item');
+    li.children[0].remove();
+    li.textContent += appendedText;
+  }
+}
+
+liModifier();

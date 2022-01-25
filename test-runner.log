@@ -307,3 +307,8 @@ Ran all test suites matching /ex4-whatsTheTime.test.js/i.
 2022-01-25 01:05:45 info: ----------------------------------------
 2022-01-25 01:05:50 info: All unit tests passed.
 2022-01-25 01:05:52 info: All steps were completed successfully
+2022-01-25 01:52:40 info: ---------------------------------------
+2022-01-25 01:52:40 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2022-01-25 01:52:40 info: ---------------------------------------
+2022-01-25 01:52:44 info: All unit tests passed.
+2022-01-25 01:52:46 info: All steps were completed successfully
