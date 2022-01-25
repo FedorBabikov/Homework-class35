@@ -22,9 +22,16 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
 
-// get reference to the img and set it's initial position
+// some constants for the cat's URL's
+const CAT_WALK = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+const CAT_DANCE =
+  'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
+
+// get reference to the img and set it's initial position and picture
+// set the initial URL for the img in this JS file, not in the HTML
 const img = document.querySelector('img');
 img.style.left = '0px';
+img.setAttribute('src', CAT_WALK);
 
 function catWalk() {
   // on every call get the number from the style prop string
@@ -32,18 +39,12 @@ function catWalk() {
 
   if (
     //distance between the img center and the viewport center less then 5px (half of the step)
-    Math.abs(window.innerWidth / 2 - (imgPosition + img.naturalWidth / 2)) < 5
+    getDistanceToCenter(imgPosition)
   ) {
     //true: change img -> wait 5sec -> change img back -> move it -> recall the function
-    img.setAttribute(
-      'src',
-      'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif'
-    );
+    img.setAttribute('src', CAT_DANCE);
     setTimeout(() => {
-      img.setAttribute(
-        'src',
-        'http://www.anniemation.com/clip_art/images/cat-walk.gif'
-      );
+      img.setAttribute('src', CAT_WALK);
       img.style.left = `${imgPosition + 10}px`;
       catWalk();
     }, 5000);
@@ -55,6 +56,12 @@ function catWalk() {
         : '0px';
     setTimeout(catWalk, 50);
   }
+}
+
+function getDistanceToCenter(imgPosition) {
+  return (
+    Math.abs(window.innerWidth / 2 - (imgPosition + img.naturalWidth / 2)) < 5
+  );
 }
 
 window.addEventListener('load', catWalk);
