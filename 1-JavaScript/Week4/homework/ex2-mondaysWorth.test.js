@@ -32,14 +32,15 @@ const mondayTasks = [
 const hourlyRate = 25;
 
 function computeEarnings(tasks, rate) {
-  // first: check if the passed arguments are an array and a number. If not - get angry..
+  // first: check if the passed arguments are an array and a number. If not - log a message.
   if (!Array.isArray(tasks) || typeof rate !== 'number') {
     return 'computeEarnings: passed arguments are not an array and a number.';
   }
-  // then: check if every 'duration' prop is a number. If not - get angry..
-  for (const { duration } of tasks) {
-    if (typeof duration !== 'number') {
-      return "computeEarnings: 'duration' in the passed array is not a number.";
+  // then: check if every 'duration' prop is a string. If yes - parse it.
+  for (const task of tasks) {
+    if (typeof task.duration === 'string') {
+      const parseResult = parseInt(task.duration, 10);
+      task.duration = parseResult ? parseResult : 0; // if valid number - store it in tasks, if NAN - store zero.
     }
   }
   // main job: chain map (with destructuring) + reduce on the passed arr.
