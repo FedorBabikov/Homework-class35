@@ -43,3 +43,9 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 module.exports = rollDice;
+
+// Why some dice keep rolling even after the ALL-promise rejected? My explanation.
+//
+//The individual promises (for every single die) have to finish executing their inner logic in order to decide whether it was a success (resolve) or a failure (reject). So they keep executing - no matter what - all the way until they encounter either resolve() or reject() invocation. Only then they stop.
+//
+// But the ALL-promise rejects immediately when at least one promise rejects. It doesn't wait for the other promises to resolve or reject. And it doesn't stop their execution either - it just doesn't care about them anymore. So they keep living their lives until they finish in their own natural way.
