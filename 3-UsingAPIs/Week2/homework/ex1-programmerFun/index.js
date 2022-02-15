@@ -18,7 +18,12 @@ Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-Usin
    should result in a network (DNS) error.
 ------------------------------------------------------------------------------*/
 function requestData(url) {
-  return fetch(url).then((response) => response.json());
+  return fetch(url).then((response) => {
+    if (!response.ok) {
+      return Promise.reject(response);
+    }
+    return response.json();
+  });
 }
 
 function renderImage(data) {
