@@ -13,3 +13,8 @@
 2022-02-16 02:35:16 info: ------------------------------------------
 2022-02-16 02:35:20 info: All unit tests passed.
 2022-02-16 02:35:23 info: All steps were completed successfully
+2022-02-16 07:04:50 info: -----------------------------------------
+2022-02-16 07:04:50 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2022-02-16 07:04:50 info: -----------------------------------------
+2022-02-16 07:04:52 info: All unit tests passed.
+2022-02-16 07:04:54 info: All steps were completed successfully
