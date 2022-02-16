@@ -15,14 +15,18 @@ const rollDie = require('../../helpers/pokerDiceRoller');
 
 function rollDice() {
   const dice = [1, 2, 3, 4, 5];
-  // TODO complete this function; use Promise.race() and rollDie()
+  const rolledDice = dice.map((die) => rollDie(die));
+  return Promise.race(rolledDice);
 }
 
 // Refactor this function to use async/await and try/catch
-function main() {
-  rollDice()
-    .then((results) => console.log('Resolved!', results))
-    .catch((error) => console.log('Rejected!', error.message));
+async function main() {
+  try {
+    const result = await rollDice();
+    console.log('Resolved!', result);
+  } catch (error) {
+    console.log('Rejected!', error.message);
+  }
 }
 
 // ! Do not change or remove the code below
@@ -30,3 +34,9 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 module.exports = rollDice;
+
+// Why some dice continue rolling even after the Promise.race() resolves? My explanation.
+//
+//The individual promises (for every single die) have to finish executing their inner logic in order to decide whether it was a success (resolve) or a failure (reject). So they keep executing - no matter what - all the way until they encounter either resolve() or reject() invocation. Only then they stop executing.
+//
+// But the Promise.race() resolves immediately when the first (it can be anyone of them) promise in the array resolves. It doesn't wait for the other promises to resolve or reject. And it doesn't stop their execution either - it just doesn't care about them anymore. So they keep living their lives until they finish execution in their own natural way.
