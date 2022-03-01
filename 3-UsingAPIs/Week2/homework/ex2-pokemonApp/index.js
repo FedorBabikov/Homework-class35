@@ -23,90 +23,117 @@ Try and avoid using global variables. As much as possible, try and use function
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
 async function fetchData(url) {
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error('HTTP or network error or wrong server status');
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('HTTP or network error or wrong server status');
+    }
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    showErrorMessage('Sorry, something went terribly wrong');
   }
-
-  return response.json();
 }
 
 function createDOMElements() {
-  const container = document.createElement('div');
+  const containerEl = document.createElement('div');
   const buttonEl = document.createElement('button');
   const selectEl = document.createElement('select');
-  const gridEl = document.createElement('div');
+  const defaultOptionEl = document.createElement('option');
+  const errContainer = document.createElement('div');
 
-  container.id = 'container';
+  errContainer.id = 'error-container';
+
+  containerEl.id = 'container';
   selectEl.id = 'pokemon-list';
-  gridEl.id = 'pokemon-grid';
+
+  defaultOptionEl.value = '';
+  defaultOptionEl.textContent = 'Select a pokemon';
+  defaultOptionEl.selected = true;
+  defaultOptionEl.disabled = true;
 
   buttonEl.type = 'button';
-  buttonEl.textContent = 'Get Pokemon!';
-  buttonEl.addEventListener('click', fetchImage);
+  buttonEl.textContent = 'Get Pokemon list';
 
-  document.body.appendChild(container);
-  container.appendChild(selectEl);
-  container.appendChild(buttonEl);
-  container.appendChild(gridEl);
+  selectEl.appendChild(defaultOptionEl);
+  containerEl.appendChild(buttonEl);
+  containerEl.appendChild(selectEl);
+  containerEl.appendChild(errContainer);
+  document.body.appendChild(containerEl);
+
+  buttonEl.addEventListener('click', () => {
+    hideErrorMessage();
+    fetchAndPopulatePokemons();
+  });
 }
 
-function fetchAndPopulatePokemons(pokemons) {
+async function fetchAndPopulatePokemons() {
   const selectEl = document.getElementById('pokemon-list');
 
-  for (const pokemon of pokemons.results) {
-    const optionEl = document.createElement('option');
-    optionEl.value = pokemon.name;
-    optionEl.textContent = pokemon.name;
-    selectEl.append(optionEl);
+  if (selectEl.length === 1) {
+    const pokemons = await fetchData('https://pokeapi.co/api/v2/pokemon');
+
+    for (const pokemon of pokemons.results) {
+      const optionEl = document.createElement('option');
+      optionEl.value = pokemon.name;
+      optionEl.textContent = pokemon.name;
+      selectEl.appendChild(optionEl);
+    }
+
+    selectEl.addEventListener('change', (event) => {
+      hideErrorMessage();
+      fetchImage(event);
+    });
+  } else {
+    showErrorMessage('Pockemon list is already populated!');
   }
 }
 
-async function fetchImage() {
+async function fetchImage(event) {
   try {
-    const selectedPokemon = document.getElementById('pokemon-list').value;
+    const selectedPokemon = event.target.value;
     const urlPokemonAPI = `https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`;
     const urlPokemonJSON = await fetchData(urlPokemonAPI);
     const urlPokemon = urlPokemonJSON.sprites.front_default;
     renderImage(urlPokemon, selectedPokemon);
   } catch (error) {
     console.log(error);
+    showErrorMessage('An error happened. Please try again later');
   }
 }
 
 function renderImage(url, name) {
-  const gridEl = document.getElementById('pokemon-grid');
+  const containerEl = document.getElementById('container');
+  let wrapperEl = document.getElementById('image-wrapper');
+  let imgEl = document.getElementById('image');
 
-  const wrapperEl = document.createElement('div');
-  wrapperEl.id = 'image-wrapper';
+  if (!wrapperEl) {
+    wrapperEl = document.createElement('div');
+    wrapperEl.id = 'image-wrapper';
 
-  const imgEl = document.createElement('img');
+    imgEl = document.createElement('img');
+    imgEl.id = 'image';
+
+    wrapperEl.appendChild(imgEl);
+    containerEl.appendChild(wrapperEl);
+  }
+
   imgEl.alt = name;
   imgEl.src = url;
-
-  wrapperEl.appendChild(imgEl);
-  gridEl.appendChild(wrapperEl);
 }
 
-function errorHandler() {
-  const errContainer = document.createElement('div');
-
-  errContainer.classList.add('container');
-  errContainer.textContent = 'Sorry, something went wrong.';
-
-  document.body.appendChild(errContainer);
+function hideErrorMessage() {
+  const errContainer = document.getElementById('error-container');
+  errContainer.textContent = '';
 }
 
-async function main() {
-  try {
-    const pokemons = await fetchData('https://pokeapi.co/api/v2/pokemon');
-    createDOMElements();
-    fetchAndPopulatePokemons(pokemons);
-  } catch (error) {
-    console.log(error);
-    errorHandler();
-  }
+function showErrorMessage(errText) {
+  const errContainer = document.getElementById('error-container');
+  errContainer.textContent = errText;
+}
+
+function main() {
+  createDOMElements();
 }
 
 window.addEventListener('load', main);

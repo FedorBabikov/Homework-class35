@@ -13,23 +13,23 @@ body {
 
 #container {
   border: 1px solid burlywood;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 5vh;
   min-width: 50vw;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5vh;
 }
 
-#pokemon-grid {
-  display: grid;
-  gap: 3vw;
-  grid-template-columns: repeat(5, 1fr);
-}
-
 #image-wrapper {
-  padding: 5px;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid burlywood;
   border-radius: 50%;
 }
@@ -42,4 +42,8 @@ button {
 
 button {
   margin-top: -3.5vh;
+}
+
+#error-container {
+  color: red;
 }

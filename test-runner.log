@@ -33,3 +33,13 @@
 2022-02-17 03:16:33 info: --------------------------------------------
 2022-02-17 03:16:33 warn: A unit test file was not provided.
 2022-02-17 03:16:35 info: All steps were completed successfully
+2022-02-28 05:57:25 info: -----------------------------------------
+2022-02-28 05:57:25 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2022-02-28 05:57:25 info: -----------------------------------------
+2022-02-28 05:57:27 info: All unit tests passed.
+2022-02-28 05:57:30 info: All steps were completed successfully
+2022-03-01 01:11:00 info: ------------------------------------------
+2022-03-01 01:11:00 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2022-03-01 01:11:00 info: ------------------------------------------
+2022-03-01 01:11:05 info: All unit tests passed.
+2022-03-01 01:11:07 info: All steps were completed successfully
